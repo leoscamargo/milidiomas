@@ -1,0 +1,411 @@
+<meta charset="utf-8">
+<title>Mil Idiomas — carrossel a escola</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --marinho: #052251;
+    --marinho-900: #041a3e;
+    --marinho-600: #14356a;
+    --marinho-400: #4d6288;
+    --marinho-200: #c3cede;
+    --marinho-100: #e3e9f2;
+    --marinho-50: #f4f6fa;
+    --vermelho: #ea191e;
+    --vermelho-50: #fef2f2;
+    --vermelho-200: #fbcccd;
+    --sombra: 0 2px 12px rgba(5, 34, 81, 0.08);
+    --sombra-media: 0 8px 30px rgba(5, 34, 81, 0.10);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #d8dde6;
+    font-family: "Poppins", ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 40px;
+  }
+
+  .slide {
+    width: 1080px;
+    height: 1350px;
+    position: relative;
+    overflow: hidden;
+    background: #ffffff;
+    color: var(--marinho);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ---------- cabeçalho e rodapé comuns ---------- */
+
+  .topo {
+    position: absolute;
+    top: 60px;
+    left: 70px;
+    right: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 3;
+  }
+  /* logo-transparente.png é gerado por logo-transparente.js a partir do PNG
+     oficial — o original tem fundo branco chapado e vira caixa nos slides claros */
+  .topo img { width: 168px; display: block; }
+  .contador {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: var(--marinho-400);
+  }
+  .slide--escuro .contador { color: var(--marinho-200); }
+
+  .handle {
+    position: absolute;
+    bottom: 58px;
+    left: 70px;
+    right: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--marinho-400);
+    z-index: 3;
+  }
+  .slide--escuro .handle { color: var(--marinho-200); }
+
+  /* ---------- tipografia ---------- */
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--vermelho);
+  }
+  .slide--escuro .eyebrow { color: var(--vermelho-200); }
+
+  h1 {
+    font-size: 92px;
+    font-weight: 800;
+    line-height: 1.06;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+  h2 {
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.14;
+    letter-spacing: -0.022em;
+    text-wrap: balance;
+  }
+  .destaque { color: var(--vermelho); }
+  p {
+    font-size: 25px;
+    line-height: 1.6;
+    color: var(--marinho-600);
+  }
+  .slide--escuro h2 { color: #ffffff; }
+  .slide--escuro p { color: var(--marinho-200); }
+
+  /* ---------- formas de apoio (eco do hero do site) ---------- */
+
+  .circulo-vazado {
+    position: absolute;
+    border: 3px solid rgba(234, 25, 30, 0.10);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .circulo-cheio {
+    position: absolute;
+    background: var(--marinho-50);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  /* ---------- slide 1 — capa ---------- */
+
+  .capa {
+    justify-content: center;
+    padding: 0 70px;
+    gap: 30px;
+    align-items: flex-start;
+  }
+  .capa .conteudo { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 30px; }
+  .capa p { font-size: 28px; max-width: 780px; }
+  .selos { display: flex; flex-direction: column; gap: 16px; margin-top: 12px; }
+  .selo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 23px;
+    font-weight: 500;
+    color: var(--marinho-600);
+  }
+  .selo svg { width: 22px; height: 22px; flex: none; color: var(--vermelho); }
+
+  /* ---------- slide 2 — foto do professor ---------- */
+
+  .foto-professor {
+    height: 720px;
+    flex: none;
+    background-image:
+      linear-gradient(rgba(5, 34, 81, 0.42) 0px, rgba(5, 34, 81, 0) 190px),
+      url("foto-professor.png");
+    background-size: 100% 100%, 1480px auto;
+    background-position: 0 0, -200px -86px;
+    background-repeat: no-repeat;
+  }
+  .bloco-escuro {
+    flex: 1;
+    background: var(--marinho);
+    padding: 66px 70px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    position: relative;
+  }
+  .bloco-escuro .globo {
+    position: absolute;
+    right: -60px;
+    bottom: -80px;
+    width: 340px;
+    color: rgba(255, 255, 255, 0.06);
+  }
+  .bloco-escuro > * { position: relative; z-index: 2; }
+  .slide--escuro .foto-professor + .bloco-escuro h2 { max-width: 900px; }
+
+  /* ---------- slide 3 — diferenciais ---------- */
+
+  .claro { background: var(--marinho-50); padding: 190px 70px 150px; gap: 22px; }
+  .grade {
+    margin-top: 26px;
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 22px;
+  }
+  .card {
+    background: #ffffff;
+    border: 1px solid rgba(5, 34, 81, 0.15);
+    border-radius: 14px;
+    padding: 34px 32px;
+    box-shadow: var(--sombra);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .card .num {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: var(--vermelho-50);
+    color: var(--vermelho);
+    font-size: 21px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card h3 { font-size: 27px; font-weight: 600; line-height: 1.25; letter-spacing: -0.01em; }
+  .card p { font-size: 21px; line-height: 1.5; }
+
+  /* ---------- slide 4 — foto dos formandos ---------- */
+
+  .branco { padding: 190px 70px 150px; gap: 22px; }
+  .moldura {
+    margin-top: 40px;
+    flex: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--sombra-media);
+    background-image: url("foto-aprovados.png");
+    background-size: cover;
+    background-position: center 32%;
+  }
+
+  /* ---------- slide 5 — chamada final ---------- */
+
+  .final {
+    background: var(--marinho);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 88px;
+    gap: 28px;
+  }
+  /* sem card por baixo: o próprio campo branco do PNG do logo vira o cartão */
+  .final .marca {
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .final .marca img { width: 430px; display: block; }
+  .final h2 { font-size: 58px; }
+  .final p { max-width: 800px; }
+  .botao {
+    margin-top: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--vermelho);
+    color: #ffffff;
+    font-size: 27px;
+    font-weight: 600;
+    padding: 24px 46px;
+    border-radius: 12px;
+  }
+  .botao svg { width: 28px; height: 28px; }
+  .contatos {
+    margin-top: 44px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 22px;
+    font-weight: 500;
+    color: #ffffff;
+    width: 100%;
+    max-width: 780px;
+  }
+  .contatos span:last-child { font-size: 20px; font-weight: 400; color: var(--marinho-200); }
+</style>
+
+<!-- ============================ SLIDE 1 — CAPA ============================ -->
+<div class="slide capa">
+  <div class="circulo-vazado" style="width: 560px; height: 560px; right: -170px; top: -200px;"></div>
+  <div class="circulo-cheio" style="width: 430px; height: 430px; left: -230px; bottom: 120px;"></div>
+
+  <div class="topo">
+    <img src="logo-transparente.png" alt="Mil Idiomas">
+    <span class="contador">01 / 05</span>
+  </div>
+
+  <div class="conteudo">
+    <span class="eyebrow">Desde 2005 · Campo Bom/RS</span>
+    <h1>Inglês com <span class="destaque">professor estrangeiro</span>, aqui em Campo&nbsp;Bom.</h1>
+    <p>Aprenda inglês na velocidade do seu tempo, ouvindo a pronúncia certa desde a primeira aula.</p>
+    <div class="selos">
+      <span class="selo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>21 anos no Centro de Campo Bom</span>
+      <span class="selo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Turmas para crianças, adolescentes e adultos</span>
+      <span class="selo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Fluência em até 2 anos</span>
+    </div>
+  </div>
+
+  <div class="handle"><span>@milidiomas</span><span>Arraste pro lado →</span></div>
+</div>
+
+<!-- ==================== SLIDE 2 — FOTO DO PROFESSOR ==================== -->
+<div class="slide slide--escuro">
+  <div class="topo">
+    <span></span>
+    <span class="contador" style="color: #ffffff;">02 / 05</span>
+  </div>
+
+  <div class="foto-professor"></div>
+
+  <div class="bloco-escuro">
+    <svg class="globo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><ellipse cx="12" cy="12" rx="4.5" ry="10"/><path d="M2.5 9h19M2.5 15h19"/></svg>
+    <span class="eyebrow">Na nossa sala</span>
+    <h2>O mundo inteiro entra pela porta da sala</h2>
+    <p>Aqui o inglês vem com um pedaço do mundo junto. Nesse dia, o professor escreveu o nome de cada aluno no alfabeto da língua materna dele. É o tipo de aula que ninguém esquece.</p>
+  </div>
+
+  <div class="handle"><span>@milidiomas</span><span></span></div>
+</div>
+
+<!-- ==================== SLIDE 3 — DIFERENCIAIS ==================== -->
+<div class="slide claro">
+  <div class="circulo-vazado" style="width: 420px; height: 420px; right: -150px; top: 90px;"></div>
+
+  <div class="topo">
+    <img src="logo-transparente.png" alt="Mil Idiomas">
+    <span class="contador">03 / 05</span>
+  </div>
+
+  <span class="eyebrow" style="position: relative; z-index: 2;">Por que a Mil Idiomas</span>
+  <h2 style="position: relative; z-index: 2;">Quatro motivos pra estudar aqui, e não num aplicativo</h2>
+
+  <div class="grade">
+    <div class="card">
+      <span class="num">1</span>
+      <h3>Professor estrangeiro em sala</h3>
+      <p>Você conversa com quem cresceu falando inglês e é corrigido na hora.</p>
+    </div>
+    <div class="card">
+      <span class="num">2</span>
+      <h3>Método que fixa de verdade</h3>
+      <p>Imagem, áudio e repetição guiada. A palavra entra sem decoreba.</p>
+    </div>
+    <div class="card">
+      <span class="num">3</span>
+      <h3>Turma pequena, atenção real</h3>
+      <p>Ninguém passa despercebido no fundo da sala. Todo mundo fala em toda aula.</p>
+    </div>
+    <div class="card">
+      <span class="num">4</span>
+      <h3>Escola de bairro, não call center</h3>
+      <p>Quem atende sabe seu nome, e a matrícula é resolvida olho no olho.</p>
+    </div>
+  </div>
+
+  <div class="handle"><span>@milidiomas</span><span></span></div>
+</div>
+
+<!-- ==================== SLIDE 4 — FORMANDOS ==================== -->
+<div class="slide branco">
+  <div class="circulo-cheio" style="width: 380px; height: 380px; left: -190px; top: 60px;"></div>
+
+  <div class="topo">
+    <img src="logo-transparente.png" alt="Mil Idiomas">
+    <span class="contador">04 / 05</span>
+  </div>
+
+  <span class="eyebrow" style="position: relative; z-index: 2;">Turma formada</span>
+  <h2 style="position: relative; z-index: 2;">No fim do caminho, o certificado na mão</h2>
+  <p style="position: relative; z-index: 2; max-width: 880px;">Do primeiro <em>hello</em> à conversa de verdade. É esse trajeto que a gente faz junto com cada turma, do começo ao fim.</p>
+
+  <div class="moldura"></div>
+
+  <div class="handle"><span>@milidiomas</span><span></span></div>
+</div>
+
+<!-- ==================== SLIDE 5 — CHAMADA FINAL ==================== -->
+<div class="slide slide--escuro final">
+  <div class="circulo-vazado" style="width: 620px; height: 620px; right: -230px; top: -180px; border-color: rgba(255,255,255,0.08);"></div>
+
+  <div class="topo">
+    <span></span>
+    <span class="contador">05 / 05</span>
+  </div>
+
+  <!-- aqui vai o PNG original de propósito: o campo branco dele é o cartão
+       claro que o logo exige pra pousar sobre o marinho -->
+  <div class="marca"><img src="logo.png" alt="Mil Idiomas"></div>
+
+  <span class="eyebrow">Comece agora</span>
+  <h2>O melhor jeito de saber se é pra você é assistir uma aula</h2>
+  <p>Aula experimental sem compromisso. Você senta com a turma, ouve o professor estrangeiro e decide depois.</p>
+
+  <span class="botao">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.8 14.16c-.25.69-1.44 1.32-1.99 1.37-.53.05-1.02.24-3.44-.72-2.9-1.14-4.74-4.1-4.88-4.29-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09.99-2.37.26-.28.57-.35.76-.35.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.28.73 1.2 1.56 1.95 1.07.95 1.98 1.25 2.26 1.39.28.14.44.12.61-.07.16-.19.7-.82.89-1.1.19-.28.37-.23.63-.14.26.09 1.65.78 1.94.92.28.14.47.21.54.33.07.12.07.68-.18 1.37Z"/></svg>
+    Chama no WhatsApp
+  </span>
+
+  <div class="contatos">
+    <span>(51) 3038-3828 · @milidiomas</span>
+    <span>Rua Daltro Filho, 184 — Centro, Campo Bom/RS</span>
+  </div>
+</div>

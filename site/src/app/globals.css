@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------
+   Mil Idiomas — design system
+   Cores extraídas do logo oficial. Ver identidade/design-guide.md
+   --------------------------------------------------------------- */
+
+@theme {
+  /* Marinho do "IDIOMAS" e do globo */
+  --color-marinho-50: #f4f6fa;
+  --color-marinho-100: #e3e9f2;
+  --color-marinho-200: #c3cede;
+  --color-marinho-400: #4d6288;
+  --color-marinho-600: #14356a;
+  --color-marinho: #052251;
+  --color-marinho-900: #041a3e;
+
+  /* Vermelho do "Mil" manuscrito — acento, nunca base */
+  --color-vermelho-50: #fef2f2;
+  --color-vermelho-200: #fbcccd;
+  --color-vermelho: #ea191e;
+  --color-vermelho-700: #c21418;
+
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 14px;
+
+  --shadow-suave: 0 2px 12px rgba(5, 34, 81, 0.08);
+  --shadow-media: 0 8px 30px rgba(5, 34, 81, 0.1);
+}
+
+/* A marca vive em fundo branco. Sem dark mode. */
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-marinho);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Foco visível e on-brand em tudo que é navegável */
+:focus-visible {
+  outline: 2px solid var(--color-vermelho);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Rótulo de seção. Sem traço decorativo antes do texto. */
+@utility eyebrow {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-vermelho);
+}
+
+/* Corpo de texto do blog */
+@utility prosa {
+  color: var(--color-marinho-600);
+  line-height: 1.75;
+
+  & h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--color-marinho);
+  }
+
+  & h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.175rem;
+    font-weight: 600;
+    color: var(--color-marinho);
+  }
+
+  & p {
+    margin-bottom: 1.125rem;
+  }
+
+  & ul,
+  & ol {
+    margin-bottom: 1.125rem;
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  & ul {
+    list-style: disc;
+  }
+
+  & ol {
+    list-style: decimal;
+  }
+
+  & li::marker {
+    color: var(--color-vermelho);
+  }
+
+  & a {
+    color: var(--color-vermelho);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  & strong {
+    color: var(--color-marinho);
+    font-weight: 600;
+  }
+
+  & blockquote {
+    margin: 1.75rem 0;
+    padding-left: 1.25rem;
+    border-left: 3px solid var(--color-vermelho);
+    font-size: 1.075rem;
+    color: var(--color-marinho);
+  }
+
+  & img {
+    border-radius: var(--radius-card);
+    margin: 1.75rem 0;
+  }
+}
