@@ -1,0 +1,18 @@
+# Deploy do site da Mil Idiomas na Netlify.
+#
+# O repositório é o workspace inteiro do MazyOS; o site Next.js vive em `site/`.
+# Por isso o `base` aponta pra lá — sem isso a Netlify tenta buildar a raiz,
+# não acha package.json e falha.
+#
+# O `publish` é relativo ao `base`, então `.next` significa `site/.next`.
+
+[build]
+  base = "site"
+  command = "npm run build"
+  publish = ".next"
+
+# Runtime do Next.js: dá suporte a server actions, rotas dinâmicas e ao
+# sitemap/robots gerados em tempo de execução. Sem ele o formulário de
+# contato e o teste de nível não funcionam.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
