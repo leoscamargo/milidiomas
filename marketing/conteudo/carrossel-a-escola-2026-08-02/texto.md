@@ -1,3 +1,11 @@
+---
+titulo: "Inglês com professor estrangeiro, aqui em Campo Bom"
+slug: a-escola
+data: 2026-08-02
+status: rascunho
+tema: apresentação da escola
+---
+
 # Carrossel — a escola (visual do site)
 
 **Data:** 02/08/2026

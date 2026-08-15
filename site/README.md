@@ -36,21 +36,6 @@ conferidos antes do site ir ao ar:
 > e sem nome completo. Para esconder a seção enquanto não houver depoimento
 > real, deixe a lista vazia: `export const depoimentos = [];`
 
-### Artigos do blog
-
-Ficam em [`content/blog/`](content/blog), um arquivo `.md` por artigo. É a
-mesma pasta que a skill `/publicar-tema` usa. Cabeçalho de cada arquivo:
-
-```yaml
----
-title: "Título do artigo"
-description: "Resumo de 150-160 caracteres, com a palavra-chave"
-date: 2026-08-02
-draft: false          # true = fica invisível no site
-tags: ["dicas"]
----
-```
-
 ### Perguntas do teste de nível
 
 Ficam em [`src/lib/teste-nivel.ts`](src/lib/teste-nivel.ts): 20 perguntas, 4 por
@@ -76,7 +61,6 @@ vale mais que banco de imagens.
 
 ```
 site/
-├─ content/blog/        artigos em markdown
 ├─ public/              logo e imagens
 └─ src/
    ├─ app/              uma pasta por página do site
@@ -86,7 +70,6 @@ site/
    │  ├─ professores/       professores
    │  ├─ a-escola/          história, missão e visão
    │  ├─ contato/           endereço, formulário e mapa
-   │  ├─ blog/              lista e artigo
    │  ├─ teste-de-nivel/    teste de inglês com captura de lead
    │  ├─ actions.ts         recebe os formulários (roda no servidor)
    │  ├─ sitemap.ts         mapa do site pro Google
@@ -95,8 +78,7 @@ site/
    └─ lib/
       ├─ site.ts        >>> CONTEÚDO DO SITE <<<
       ├─ teste-nivel.ts perguntas e cálculo do nível
-      ├─ leads.ts       hCaptcha e envio dos leads por e-mail
-      └─ blog.ts        leitura dos artigos
+      └─ leads.ts       hCaptcha e envio dos leads por e-mail
 ```
 
 ---

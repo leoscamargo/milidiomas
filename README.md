@@ -59,11 +59,11 @@ em skill personalizada.
 
 **Conteúdo e SEO** — vitrine pública da empresa
 `/carrossel` cria carrosséis 1080×1350 com identidade da marca (com ou
-sem foto IA) · `/publicar-tema` pega um tema e entrega artigo de blog +
-carrossel + 3 legendas amarradas · `/seo` roda fluxo completo de 8 passos
+sem foto IA) · `/publicar-tema` pega um tema e entrega roteiro +
+carrossel + legenda amarrados · `/seo` roda fluxo completo de 8 passos
 (demanda, concorrência, GMB, on-page, conteúdo, ads, monitoramento, GEO)
 · `/responder-avaliacoes` escreve respostas humanas pras reviews do
-Google · `/aprovar-post` publica blog + Instagram + Facebook num comando.
+Google · `/aprovar-post` publica no Instagram + Facebook num comando.
 
 **Anúncios pagos** — onde o dinheiro entra
 `/anuncio-google` monta a campanha inteira em CSV pronto pra importar

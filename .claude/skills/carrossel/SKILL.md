@@ -228,13 +228,13 @@ marketing/conteudo/<tipo>-<tema>-<YYYY-MM-DD>/
   legenda-linkedin.md   ← (se pedido, mais formal)
 ```
 
-### Passo 6 — Conexão com blog (opcional)
+### Passo 6 — Publicação (opcional)
 
-Depois de criar o conteúdo visual, perguntar:
+Depois de criar o conteúdo visual e renderizar os PNGs, perguntar:
 
-> "Esse conteúdo dá pra virar artigo no blog também. Quer que eu crie a versão blog pra SEO?"
+> "Quer que eu publique no Instagram e no Facebook?"
 
-Se sim, chamar `/publicar-tema` com o mesmo tema.
+Se sim, chamar `/aprovar-post` com o slug da pasta.
 
 ---
 

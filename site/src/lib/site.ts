@@ -70,7 +70,6 @@ export const navegacao = [
   { href: "/professores", label: "Professores" },
   { href: "/teste-de-nivel", label: "Teste de nível" },
   { href: "/a-escola", label: "A escola" },
-  { href: "/blog", label: "Blog" },
   { href: "/contato", label: "Contato" },
 ] as const;
 
