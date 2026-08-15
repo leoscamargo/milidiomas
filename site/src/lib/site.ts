@@ -91,7 +91,7 @@ export const numeros = [
   { valor: "2005", rotulo: "Ano de fundação", detalhe: "Escola de Campo Bom, de porta aberta" },
   { valor: "44", rotulo: "Anos de método", detalhe: "Sistema Natural Mnemotécnico" },
   { valor: "2", rotulo: "Anos até a fluência", detalhe: "Do zero à conversa de verdade" },
-  { valor: "5", rotulo: "Livros do curso", detalhe: "Com áudio e revisão no portal" },
+  { valor: "5", rotulo: "Livros do curso", detalhe: "Com áudio e revisão em cada etapa" },
 ];
 
 /* --------------------------------------------------------------------------- */
@@ -233,7 +233,7 @@ export const metodologia = {
   material: [
     "5 livros ilustrados, um por etapa do curso",
     "Áudios sincronizados com as imagens do livro",
-    "Revisões e textos disponíveis no Portal do Aluno",
+    "Revisões e textos de apoio ao fim de cada etapa",
     "Acompanhamento presencial do professor em sala",
   ],
 };

@@ -62,13 +62,6 @@ export function Header() {
 
           <div className="hidden items-center gap-2 xl:flex">
             <Botao
-              href="/portal"
-              variante="secundario"
-              className="whitespace-nowrap px-4 py-2.5 text-sm"
-            >
-              Portal do Aluno
-            </Botao>
-            <Botao
               href={whatsappUrl(CTA_PADRAO)}
               target="_blank"
               rel="noopener noreferrer"
@@ -131,13 +124,6 @@ export function Header() {
               >
                 <Icone nome="whatsapp" className="size-5" />
                 Falar no WhatsApp
-              </Botao>
-              <Botao
-                href="/portal"
-                variante="secundario"
-                onClick={() => setAberto(false)}
-              >
-                Portal do Aluno
               </Botao>
             </div>
           </Container>

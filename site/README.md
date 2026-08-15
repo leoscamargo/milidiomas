@@ -88,7 +88,6 @@ site/
    │  ├─ contato/           endereço, formulário e mapa
    │  ├─ blog/              lista e artigo
    │  ├─ teste-de-nivel/    teste de inglês com captura de lead
-   │  ├─ portal/            Portal do Aluno (etapa 2)
    │  ├─ actions.ts         recebe os formulários (roda no servidor)
    │  ├─ sitemap.ts         mapa do site pro Google
    │  └─ robots.ts          regras pros buscadores
@@ -134,23 +133,6 @@ faixa de slogans deslizando e transição entre as perguntas do teste.
 
 Tudo respeita a opção "reduzir movimento" do sistema — quem liga essa
 configuração vê o conteúdo aparecer sem deslocamento.
-
----
-
-## Portal do Aluno — etapa 2
-
-A rota `/portal` hoje é só o desenho da tela de entrada, com os campos
-desativados. Ainda não existe banco de dados nem login de verdade.
-
-O que está previsto pra segunda etapa:
-
-- Login por e-mail e senha, com captcha e recuperação de senha
-- Sem botão de criar conta — o acesso é gerado pela secretaria na matrícula
-- **Financeiro:** mensalidades, vencimento, situação e boleto
-- **Agenda:** calendário com as datas de prova da turma
-- **Notas:** resultado de cada avaliação
-- **Perfil:** dados cadastrais do aluno
-- **Painel administrativo** pra secretaria lançar notas, boletos e provas
 
 ---
 

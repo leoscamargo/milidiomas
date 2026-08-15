@@ -74,7 +74,6 @@ export function Footer() {
                 {item.label}
               </FooterLink>
             ))}
-            <FooterLink href="/portal">Portal do Aluno</FooterLink>
           </FooterColuna>
 
           <FooterColuna titulo="Contato">
